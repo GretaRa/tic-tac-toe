@@ -1,9 +1,15 @@
 //Module for game board
 const gameBoard = (() => {
-    //creates an array from all elements with class .box
-    const gridItem = Array.from(document.querySelectorAll('.box'));
-
+    // Variables
+    let turn = 'X';
     let board;
+    let win;
+
+    // DOM selection
+    //creates an array from all elements with class .box
+    const gridItems = Array.from(document.querySelectorAll('.box'));
+    const messages = document.querySelector('.announcement');
+    
     const init = () => {
         board = [
             '', '', '',
@@ -16,30 +22,53 @@ const gameBoard = (() => {
     //render a mark in the same position in dom and within board array
     const rendergameBoard = () => {
         board.forEach((mark, index) => {
-            gridItem[index].textContent = mark;
-            });
+            gridItems[index].textContent = mark;
+        });
         
+        messages.textContent = win === 'T' ? `That's a tie!` : win ? `${win} wins the game!` : `It's ${turn}'s turn!`;
     };
-    // const addMark = (mark) => {
-    //     const gridItem = document.querySelectorAll('.box').forEach(gridItem => gridItem.addEventListener('click', () => {
-    //         if (gridItem.innerHTML === ''){
-    //             gridItem.textContent = mark ;
-    //         } else {
-    //             return;
-    //         }
-    //     }));
-    // }
+
+    const handleTurn = (event) => {
+        let idx = gridItems.findIndex((gridItem) => {
+            return gridItem === event.target;
+        });
+        board[idx] = turn;
+        turn = turn === 'X' ? 'O' : 'X';
+        win = getWinner();
+        rendergameBoard();
+    };
+
+    const winningCombos = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6], 
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+    ];
+
+    const getWinner = () => {
+        let winner = null;
+        winningCombos.forEach(function(combo, index) {
+            if (board[combo[0]] && board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]]) winner = board[combo[0]];
+        });
+        return winner ? winner : board.includes('') ? null : 'T';
+    };
+
+    
+    //Event listeners
+    document.getElementById('gameBoard').addEventListener('click', handleTurn);
+    document.getElementById('reset-button').addEventListener('click', init);
+     
 
     return {
         init
-        //rendergameBoard,
-        //addMark
+        
     }
 })();
 gameBoard.init();
-//gameBoard.rendergameBoard();
-// gameBoard.addMark('X');
-
 
 const displayController = (() => {
 

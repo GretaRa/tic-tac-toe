@@ -14,6 +14,7 @@
 <body>
     <div class="container">
         <h1>Tic Tac Toe</h1>
+        <h2 class="announcement"></h2>
         <form action="#" class="playerSelection">
             <div class="playerOne">
                 <label for="markO">Player O</label>
@@ -31,7 +32,7 @@
             </div>
             <input type="submit">
         </form>
-        <div class="gameBoard">
+        <div id="gameBoard" class="gameBoard">
             <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
@@ -42,6 +43,7 @@
             <div class="box"></div>
             <div class="box"></div>
         </div>
+        <button id="reset-button">reset</button>
     </div>
     <footer>
         <p>Designed and coded by Greta Rakauskaite &copy 2022</p>
