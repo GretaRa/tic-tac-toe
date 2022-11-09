@@ -1,29 +1,44 @@
 //Module for game board
 const gameBoard = (() => {
-    //add logic for wining
-    const gameBoard = ['X', 'O', 'X'];
-    
+    //creates an array from all elements with class .box
+    const gridItem = Array.from(document.querySelectorAll('.box'));
+
+    let board;
+    const init = () => {
+        board = [
+            '', '', '',
+            '', '', '',
+            '', '', ''
+        ];
+
+        rendergameBoard();
+    };
+    //render a mark in the same position in dom and within board array
     const rendergameBoard = () => {
-        
+        board.forEach((mark, index) => {
+            gridItem[index].textContent = mark;
+            });
         
     };
-    const addMark = (mark) => {
-        const gridItem = document.querySelectorAll('.box').forEach(gridItem => gridItem.addEventListener('click', () => {
-            if (gridItem.innerHTML === ''){
-                gridItem.textContent = mark ;
-            } else {
-                return;
-            }
-        }));
-    }
+    // const addMark = (mark) => {
+    //     const gridItem = document.querySelectorAll('.box').forEach(gridItem => gridItem.addEventListener('click', () => {
+    //         if (gridItem.innerHTML === ''){
+    //             gridItem.textContent = mark ;
+    //         } else {
+    //             return;
+    //         }
+    //     }));
+    // }
 
     return {
-        rendergameBoard,
-        addMark
+        init
+        //rendergameBoard,
+        //addMark
     }
 })();
-gameBoard.rendergameBoard();
-gameBoard.addMark('X');
+gameBoard.init();
+//gameBoard.rendergameBoard();
+// gameBoard.addMark('X');
 
 
 const displayController = (() => {
@@ -33,16 +48,16 @@ const displayController = (() => {
 })();
 
 //Factory function for creating players
-const Player = (name, mark) => {
-    return{
-        name,mark
-    }
-};
+// const Player = (name, mark) => {
+//     return{
+//         name,mark
+//     }
+// };
 
-const playerOne = Player('Player O','O');
-const playerTwo = Player('Player X','X');
-console.log(playerOne.mark);
-console.log(playerTwo.mark);
+// const playerOne = Player('Player O','O');
+// const playerTwo = Player('Player X','X');
+// console.log(playerOne.mark);
+// console.log(playerTwo.mark);
 
 //player o
 //mark = o
