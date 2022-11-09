@@ -1,5 +1,6 @@
 //Module for game board
 const gameBoard = (() => {
+    //add logic for wining
     const gameBoard = ['X', 'O', 'X'];
     
     const rendergameBoard = () => {
@@ -32,8 +33,21 @@ const displayController = (() => {
 })();
 
 //Factory function for creating players
-const Player = (name) => {
-
+const Player = (name, mark) => {
+    return{
+        name,mark
+    }
 };
 
+const playerOne = Player('Player O','O');
+const playerTwo = Player('Player X','X');
+console.log(playerOne.mark);
+console.log(playerTwo.mark);
+
+//player o
+//mark = o
+//human?/pc
+//player x
+//mark = x
+//human?/pc
 

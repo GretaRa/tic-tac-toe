@@ -22,15 +22,24 @@ body{
 }
 
 .container{
-    width: 300px;
-    height: 300px;
     justify-self: center;
     align-self: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.playerSelection{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
 }
 
 .gameBoard{
+    width: 300px;
+    height: 300px;
     flex-grow: 1;
     display: grid;
     grid-template-columns: repeat(3,1fr);
