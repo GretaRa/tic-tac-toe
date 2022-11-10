@@ -16,16 +16,18 @@ const gameBoard = (() => {
             '', '', '',
             '', '', ''
         ];
-
         rendergameBoard();
     };
     //render a mark in the same position in dom and within board array
     const rendergameBoard = () => {
+        
         board.forEach((mark, index) => {
             gridItems[index].textContent = mark;
         });
         
         messages.textContent = win === 'T' ? `That's a tie!` : win ? `${win} wins the game!` : `It's ${turn}'s turn!`;
+        
+        if (messages.textContent === `That's a tie!` || messages.textContent === `${win} wins the game!`) document.getElementById('gameBoard').removeEventListener('click', handleTurn);
     };
 
     const handleTurn = (event) => {
@@ -57,15 +59,21 @@ const gameBoard = (() => {
         return winner ? winner : board.includes('') ? null : 'T';
     };
 
+    const gameOver = () => {
+        init();
+        turn = 'X';
+        messages.textContent = `It's ${turn}'s turn!`;
+        document.getElementById('gameBoard').addEventListener('click', handleTurn);
+    };
+
     
     //Event listeners
     document.getElementById('gameBoard').addEventListener('click', handleTurn);
-    document.getElementById('reset-button').addEventListener('click', init);
+    document.getElementById('reset-button').addEventListener('click', gameOver);
      
 
     return {
         init
-        
     }
 })();
 gameBoard.init();
@@ -76,22 +84,10 @@ const displayController = (() => {
     
 })();
 
-//Factory function for creating players
-// const Player = (name, mark) => {
-//     return{
-//         name,mark
-//     }
-// };
 
-// const playerOne = Player('Player O','O');
-// const playerTwo = Player('Player X','X');
-// console.log(playerOne.mark);
-// console.log(playerTwo.mark);
-
-//player o
-//mark = o
-//human?/pc
-//player x
-//mark = x
-//human?/pc
-
+//Prevent from clicking taken spot
+//End game after someone wins/tie+
+//Improve style of buttons
+//Change layout
+//connect human/ai choices
+//add AI
