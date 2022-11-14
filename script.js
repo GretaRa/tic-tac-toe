@@ -21,12 +21,21 @@ const gameBoard = (() => {
     //render a mark in the same position in dom and within board array
     const rendergameBoard = () => {
         board.forEach((mark, index) => {
+            if(mark === 'X'){
+                gridItems[index].classList.add( 'x-selected')
+            }  
+            if(mark === 'O'){
+                gridItems[index].classList.add( 'o-selected')
+            }
+            if (mark === ''){
+                gridItems[index].classList.remove( 'o-selected','x-selected')
+            }
             gridItems[index].textContent = mark;
         });
         
         messages.textContent = win === 'T' ? `That's a tie!` : win ? `${win} wins the game!` : `It's ${turn}'s turn!`;
         
-        if (messages.textContent === `That's a tie!` || messages.textContent === `${win} wins the game!`) document.getElementById('gameBoard').removeEventListener('click', handleTurn), document.getElementById('resetButton').style.transform = 'scale(2)';
+        if (messages.textContent === `That's a tie!` || messages.textContent === `${win} wins the game!`) document.getElementById('gameBoard').removeEventListener('click', handleTurn), document.getElementById('resetButton').style.transform = 'scale(1.6)';
     };
 
     const handleTurn = (event) => {
@@ -40,6 +49,7 @@ const gameBoard = (() => {
             return
         }
         win = getWinner();
+        
         rendergameBoard();
     };
 
@@ -59,7 +69,8 @@ const gameBoard = (() => {
         winningCombos.forEach(function(combo, index) {
             if (board[combo[0]] && board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]]) winner = board[combo[0]];
         });
-        return winner ? winner : board.includes('') ? null : 'T';
+        
+        return winner ? winner  : board.includes('') ? null : 'T';
     };
 
     const gameOver = () => {

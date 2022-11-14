@@ -3,6 +3,8 @@
     --main-color: black;
     --border-color: black;
     --white-font-color: white;
+    --pink-color: #FF64A6;
+    --blue-color: #1C6AE1;
 }
 
 *{
@@ -20,6 +22,8 @@ body{
     display: grid;
     grid-template-rows: 1fr auto;
     grid-template-columns: 100%;
+    background: rgb(144,185,244);
+background: linear-gradient(173deg, rgba(144,185,244,1) 0%, rgba(227,156,237,1) 25%, rgba(237,153,189,1) 50%, rgba(230,153,141,1) 75%, rgba(242,210,156,1) 100%);
 }
 
 button,
@@ -40,12 +44,38 @@ input,
 
 .container h1{
     font-size: 60px;
+    align-self: flex-start;
+}
+
+.container h2{
+    align-self: flex-start;
+    font-size: 30px;
 }
 
 .playerSelection{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
     gap: 10px;
+    font-size: 25px;
+}
+
+.playerSelection select{
+    border: 0 !important;  /*Removes border*/
+	-webkit-appearance: none;  /*Removes default chrome and safari style*/
+	-moz-appearance: none; /* Removes Default Firefox style*/
+    appearance:none;
+    font-size: 20px;
+    padding: 3px 5px;
+    border-radius: 5px;
+    background-color: #ece6f7;
+}
+
+.playerSelection input{
+    font-size: 25px;
+    font-family: inherit;
+    background-color: #bd8af8;
+    border-radius: 5px;
+    
 }
 
 .gameBoard{
@@ -56,6 +86,8 @@ input,
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(3, 1fr);
     border: 1px solid var(--border-color);
+    border-radius: 3px;
+    background-color: #e3d6fa;
 }
 
 .box{
@@ -63,7 +95,24 @@ input,
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 60px;
+    font-size: 80px;
+    background-color: linear-gradient(90deg, #1C6AE1,#C360D1,#FF64A6,#FF8C79);
+}
+
+.x-selected {
+    content: 'X';
+    color: var(--pink-color);
+}
+
+.o-selected{
+    content: 'O';
+    color: var(--blue-color);
+}
+
+.side{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
 }
 
 .containerSide{
@@ -72,9 +121,10 @@ input,
 }
 
 #resetButton{
-    font-size: 30px;
+    font-family: inherit;
+    font-size: 40px;
     border: none;
-    background-color: var(--white-font-color);
+    background-color: transparent;
     align-self: flex-start;
 }
 
