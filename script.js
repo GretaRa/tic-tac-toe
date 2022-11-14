@@ -20,22 +20,25 @@ const gameBoard = (() => {
     };
     //render a mark in the same position in dom and within board array
     const rendergameBoard = () => {
-        
         board.forEach((mark, index) => {
             gridItems[index].textContent = mark;
         });
         
         messages.textContent = win === 'T' ? `That's a tie!` : win ? `${win} wins the game!` : `It's ${turn}'s turn!`;
         
-        if (messages.textContent === `That's a tie!` || messages.textContent === `${win} wins the game!`) document.getElementById('gameBoard').removeEventListener('click', handleTurn);
+        if (messages.textContent === `That's a tie!` || messages.textContent === `${win} wins the game!`) document.getElementById('gameBoard').removeEventListener('click', handleTurn), document.getElementById('resetButton').style.transform = 'scale(2)';
     };
 
     const handleTurn = (event) => {
         let idx = gridItems.findIndex((gridItem) => {
             return gridItem === event.target;
         });
-        board[idx] = turn;
-        turn = turn === 'X' ? 'O' : 'X';
+        if (event.target.textContent === ''){
+            board[idx] = turn;
+            turn = turn === 'X' ? 'O' : 'X';
+        } else {
+            return
+        }
         win = getWinner();
         rendergameBoard();
     };
@@ -64,12 +67,13 @@ const gameBoard = (() => {
         turn = 'X';
         messages.textContent = `It's ${turn}'s turn!`;
         document.getElementById('gameBoard').addEventListener('click', handleTurn);
+        document.getElementById('resetButton').style.transform = 'scale(1)';
     };
 
     
     //Event listeners
     document.getElementById('gameBoard').addEventListener('click', handleTurn);
-    document.getElementById('reset-button').addEventListener('click', gameOver);
+    document.getElementById('resetButton').addEventListener('click', gameOver);
      
 
     return {
@@ -84,10 +88,6 @@ const displayController = (() => {
     
 })();
 
-
-//Prevent from clicking taken spot
-//End game after someone wins/tie+
-//Improve style of buttons
-//Change layout
-//connect human/ai choices
+//Style
 //add AI
+//connect human/ai choices
