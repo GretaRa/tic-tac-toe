@@ -42,6 +42,7 @@ input,
     justify-content: center;
     align-items: center;
     gap: 20px;
+    /* color: #3d0380; */
 }
 
 .container h1{
@@ -55,7 +56,8 @@ input,
 }
 
 .playerSelection{
-    display: grid;
+    display: none;
+    /* display: grid; */
     grid-template-rows: repeat(3,1fr);
     gap: 10px;
     font-size: 25px;
@@ -72,7 +74,7 @@ input,
     background-color: var(--lighter-background);
 }
 
-.playerSelection input{
+.playerSelection button{
     font-size: 25px;
     font-family: inherit;
     background-color: var(--light-purple);
@@ -97,18 +99,20 @@ input,
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 80px;
+    font-size: 90px;
     background-color: linear-gradient(90deg, #1C6AE1,#C360D1,#FF64A6,#FF8C79);
 }
 
 .x-selected {
     content: 'X';
     color: var(--pink-color);
+    cursor: not-allowed;
 }
 
 .o-selected{
     content: 'O';
     color: var(--blue-color);
+    cursor: not-allowed;
 }
 
 .side{
@@ -128,6 +132,7 @@ input,
     border: none;
     background-color: transparent;
     align-self: flex-start;
+    justify-self: flex-start;
 }
 
 footer{

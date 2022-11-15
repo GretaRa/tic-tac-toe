@@ -33,9 +33,10 @@ const gameBoard = (() => {
             gridItems[index].textContent = mark;
         });
         
-        messages.textContent = win === 'T' ? `That's a tie!` : win ? `${win} wins the game!` : `It's ${turn}'s turn!`;
-        
-        if (messages.textContent === `That's a tie!` || messages.textContent === `${win} wins the game!`) document.getElementById('gameBoard').removeEventListener('click', handleTurn), document.getElementById('resetButton').style.transform = 'scale(1.6)';
+        messages.textContent = win === 'T' ? `That's a tie!` : win ? `Player ${win} wins the game!` : `It's ${turn}'s turn!`;
+
+        //Stop the game if there is a winner/tie and make the reset button larger
+        if (messages.textContent === `That's a tie!` || messages.textContent === `Player ${win} wins the game!`) document.getElementById('gameBoard').removeEventListener('click', handleTurn), document.getElementById('resetButton').style.fontSize = '70px', document.querySelector('.announcement').style.fontSize = '35px',document.querySelector('.announcement').style.textDecoration = 'underline';
     };
 
     const handleTurn = (event) => {
@@ -78,7 +79,9 @@ const gameBoard = (() => {
         turn = 'X';
         messages.textContent = `It's ${turn}'s turn!`;
         document.getElementById('gameBoard').addEventListener('click', handleTurn);
-        document.getElementById('resetButton').style.transform = 'scale(1)';
+        document.getElementById('resetButton').style.fontSize = '40px';
+        document.querySelector('.announcement').style.fontSize = '30px';
+        document.querySelector('.announcement').style.textDecoration = 'none';
     };
 
     
