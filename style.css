@@ -1,148 +1,156 @@
 /* Global */
-:root{
-    --font-color: #000000;
-    --border-color: #000000;
-    --pink-color: #FF64A6;
-    --blue-color: #1C6AE1;
-    --light-purple: #bd8af8;
-    --light-background: #e3d6fa;
-    --lighter-background: #ece6f7;
+:root {
+  --font-color: #000000;
+  --border-color: #000000;
+  --pink-color: #ff64a6;
+  --blue-color: #1c6ae1;
+  --light-purple: #bd8af8;
+  --light-background: #e3d6fa;
+  --lighter-background: #ece6f7;
 }
 
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-html,body{
-    width: 100%;
-    height: 100%;
-    font-family: 'Nunito', Arial, sans-serif;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Nunito", Arial, sans-serif;
 }
 
-body{
-    display: grid;
-    grid-template-rows: 1fr auto;
-    grid-template-columns: 100%;
-    background: rgb(144,185,244);
-background: linear-gradient(173deg, rgba(144,185,244,1) 0%, rgba(227,156,237,1) 25%, rgba(237,153,189,1) 50%, rgba(230,153,141,1) 75%, rgba(242,210,156,1) 100%);
+body {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 100%;
+  background: rgb(144, 185, 244);
+  background: linear-gradient(
+    173deg,
+    rgba(144, 185, 244, 1) 0%,
+    rgba(227, 156, 237, 1) 25%,
+    rgba(237, 153, 189, 1) 50%,
+    rgba(230, 153, 141, 1) 75%,
+    rgba(242, 210, 156, 1) 100%
+  );
 }
 
 button,
 input,
-.box{
-    cursor: pointer;
+.box {
+  cursor: pointer;
 }
 
-.container{
-    justify-self: center;
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    /* color: #3d0380; */
+.container {
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
-.container h1{
-    font-size: 60px;
-    align-self: flex-start;
+.container h1 {
+  font-size: 60px;
+  align-self: flex-start;
 }
 
-.container h2{
-    align-self: flex-start;
-    font-size: 30px;
+.container h2 {
+  align-self: flex-start;
+  font-size: 30px;
 }
 
-.playerSelection{
-    display: none;
-    /* display: grid; */
-    grid-template-rows: repeat(3,1fr);
-    gap: 10px;
-    font-size: 25px;
+.playerSelection {
+  display: none;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+  font-size: 25px;
 }
 
-.playerSelection select{
-    border: 0 !important;  /*Removes border*/
-	-webkit-appearance: none;  /*Removes default chrome and safari style*/
-	-moz-appearance: none; /* Removes Default Firefox style*/
-    appearance:none;
-    font-size: 20px;
-    padding: 3px 5px;
-    border-radius: 5px;
-    background-color: var(--lighter-background);
+.playerSelection select {
+  border: 0 !important;
+  /*Removes border*/
+  -webkit-appearance: none;
+  /*Removes default chrome and safari style*/
+  -moz-appearance: none;
+  /* Removes Default Firefox style*/
+  appearance: none;
+  font-size: 20px;
+  padding: 3px 5px;
+  border-radius: 5px;
+  background-color: var(--lighter-background);
 }
 
-.playerSelection button{
-    font-size: 25px;
-    font-family: inherit;
-    background-color: var(--light-purple);
-    border-radius: 5px;
-    
+.playerSelection button {
+  font-size: 25px;
+  font-family: inherit;
+  background-color: var(--light-purple);
+  border-radius: 5px;
 }
 
-.gameBoard{
-    width: 400px;
-    height: 400px;
-    flex-grow: 1;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(3, 1fr);
-    border: 1px solid var(--border-color);
-    border-radius: 3px;
-    background-color: var(--light-background);
+.gameBoard {
+  width: 400px;
+  height: 400px;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  background-color: var(--light-background);
 }
 
-.box{
-    border: 1px solid var(--border-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 90px;
-    background-color: linear-gradient(90deg, #1C6AE1,#C360D1,#FF64A6,#FF8C79);
+.box {
+  border: 1px solid var(--border-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 90px;
+  background-color: linear-gradient(90deg, #1c6ae1, #c360d1, #ff64a6, #ff8c79);
 }
 
 .x-selected {
-    content: 'X';
-    color: var(--pink-color);
-    cursor: not-allowed;
+  content: "X";
+  color: var(--pink-color);
+  cursor: not-allowed;
 }
 
-.o-selected{
-    content: 'O';
-    color: var(--blue-color);
-    cursor: not-allowed;
+.o-selected {
+  content: "O";
+  color: var(--blue-color);
+  cursor: not-allowed;
 }
 
-.side{
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    align-items: center;
+.side {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
 }
 
-.containerSide{
-    display: flex;
-    gap: 50px;
+.containerSide {
+  display: flex;
+  gap: 50px;
 }
 
-#resetButton{
-    font-family: inherit;
-    font-size: 40px;
-    border: none;
-    background-color: transparent;
-    align-self: flex-start;
-    justify-self: flex-start;
+#resetButton {
+  font-family: inherit;
+  font-size: 40px;
+  border: none;
+  background-color: transparent;
+  align-self: flex-start;
+  justify-self: flex-start;
 }
 
-footer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
-    align-self: baseline;
-    background-color: var(--light-purple);
-    font-size: 18px;
-    border-top: 2px solid var(--font-color);
-    color: var(--font-color);
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  align-self: baseline;
+  background-color: var(--light-purple);
+  font-size: 18px;
+  border-top: 2px solid var(--font-color);
+  color: var(--font-color);
 }

@@ -1,60 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
     <script src="script.js" defer></script>
     <title>Tic Tac Toe</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>Tic Tac Toe</h1>
-        <h2 class="announcement"></h2>
-        
-        <div class="containerSide">
-            
-            <div id="gameBoard" class="gameBoard">
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-            </div>
-            <div class="side">
-                <form action="#" class="playerSelection">
-                    <div class="playerOne">
-                        <label for="markO">Player O</label>
-                        <select id="markO" name="markO">
-                            <option value="Human">Human</option>
-                            <option value="Computer">Computer</option>
-                        </select>
-                    </div>
-                    <div class="playerTwo">
-                        <label for="markX">Player X</label>
-                        <select id="markX" name="markX">
-                            <option value="Human">Human</option>
-                            <option value="Computer">Computer</option>
-                        </select>
-                    </div>
-                    <button type="submit">Start game</button>
-                </form>
-                <button id="resetButton">Reset</button>
-            </div>
+      <h1>Tic Tac Toe</h1>
+      <h2 class="announcement"></h2>
+
+      <div class="containerSide">
+        <div id="gameBoard" class="gameBoard">
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
         </div>
-        
+        <div class="side">
+          <form action="#" class="playerSelection">
+            <div class="playerOne">
+              <label for="markO">Player O</label>
+              <select id="markO" name="markO">
+                <option value="Human">Human</option>
+                <option value="Computer">Computer</option>
+              </select>
+            </div>
+            <div class="playerTwo">
+              <label for="markX">Player X</label>
+              <select id="markX" name="markX">
+                <option value="Human">Human</option>
+                <option value="Computer">Computer</option>
+              </select>
+            </div>
+            <button type="submit">Start game</button>
+          </form>
+          <button id="resetButton">Reset</button>
+        </div>
+      </div>
     </div>
     <footer>
-        <p>Designed and coded by Greta Rakauskaite &copy 2022</p>
+      <p>Designed and coded by Greta Rakauskaite &copy 2022</p>
     </footer>
-</body>
+  </body>
 </html>
