@@ -2,11 +2,11 @@
 :root {
   --font-color: #000000;
   --border-color: #000000;
-  --pink-color: #ff64a6;
-  --blue-color: #1c6ae1;
-  --light-purple: #bd8af8;
-  --light-background: #e3d6fa;
-  --lighter-background: #ece6f7;
+  --pink-color: #FFC26F;
+  --blue-color: #884A39;
+  --light-purple: #C38154;
+  --light-background: #ffffff;
+  --lighter-background: #F9E0BB;
 }
 
 * {
@@ -26,14 +26,7 @@ body {
   grid-template-rows: 1fr auto;
   grid-template-columns: 100%;
   background: rgb(144, 185, 244);
-  background: linear-gradient(
-    173deg,
-    rgba(144, 185, 244, 1) 0%,
-    rgba(227, 156, 237, 1) 25%,
-    rgba(237, 153, 189, 1) 50%,
-    rgba(230, 153, 141, 1) 75%,
-    rgba(242, 210, 156, 1) 100%
-  );
+  background: var(--lighter-background);
 }
 
 button,
@@ -136,9 +129,11 @@ input,
 
 #resetButton {
   font-family: inherit;
-  font-size: 40px;
-  border: none;
-  background-color: transparent;
+  font-size: 30px;
+  border: 2px solid var(--border-color);
+  background-color: #C38154;
+  padding: 5px 30px;
+  border-radius: 15px;
   align-self: flex-start;
   justify-self: flex-start;
 }

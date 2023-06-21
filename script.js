@@ -44,7 +44,7 @@ const gameBoard = (() => {
       document
         .getElementById("gameBoard")
         .removeEventListener("click", handleTurn),
-        (document.getElementById("resetButton").style.fontSize = "70px"),
+        (document.getElementById("resetButton").style.fontSize = "40px"),
         (document.querySelector(".announcement").style.fontSize = "35px"),
         (document.querySelector(".announcement").style.textDecoration =
           "underline");
@@ -95,7 +95,7 @@ const gameBoard = (() => {
     turn = "X";
     messages.textContent = `It's ${turn}'s turn!`;
     document.getElementById("gameBoard").addEventListener("click", handleTurn);
-    document.getElementById("resetButton").style.fontSize = "40px";
+    document.getElementById("resetButton").style.fontSize = "30px";
     document.querySelector(".announcement").style.fontSize = "30px";
     document.querySelector(".announcement").style.textDecoration = "none";
   };
